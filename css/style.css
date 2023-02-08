@@ -106,7 +106,7 @@ background-image: url(../img/background/parallax-image-bg-4.jpg);
 
 /* 1.3. about IMG BACKGROUND */
 .about-bg-1 {
-background-image: url(../img/about/1.jpg);
+background-image: url(../img/homepage/cafe-1080.png);
 }
 
 
@@ -202,8 +202,13 @@ background-image: url(../img/facilities/3.jpg);
 }
 
 .facilities-bg-4 {
-background-image: url(../img/facilities/4.jpg);
+background-image: url(../img/orangee.png);
 }
+
+.facilities-bg-5 {
+  background-image: url(../img/homepage/double-1080.png);
+  }
+  
 
 /* 1.6. gallery IMG BACKGROUND */
 .gallery-bg {
@@ -1795,7 +1800,7 @@ position: relative;
 font-family: 'Montserrat', sans-serif;
 font-style: normal;
 font-weight: 700;
-font-size: 55px;
+font-size: 45px;
 text-align: center;
 text-transform: none;
 letter-spacing: -0.04em;
