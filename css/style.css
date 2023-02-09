@@ -705,6 +705,9 @@ padding: 31px 15px 0 15px;
   }
 }
 
+
+
+
 .main-navigation-bg .main-navigation .navbar-nav li a:hover {
 color: #5f5f5f;
 }
@@ -2673,13 +2676,17 @@ height: 100px;
 position: absolute;
 }
 
-.test-img{
-  display: grid;
+.img-test{
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
+
+
 
 .test-names{
   font-size: 1rem;
+  padding-left: 1rem;
 }
 
 .pswp__button--arrow--left {
