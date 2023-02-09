@@ -7978,6 +7978,11 @@ mix-blend-mode: darken;
   }
 }
 
+.cords{
+  text-align: center;
+  letter-spacing: 4px;
+}
+
 @media only screen and (max-width: 640px) {
   .parallax-title-content {
     font-size: 35px;
