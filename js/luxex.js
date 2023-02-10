@@ -26,6 +26,8 @@
   20. blog comment form
 */
 
+document.getElementById("vid").play();
+
 $(function () {
   "use strict";
 
