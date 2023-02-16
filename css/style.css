@@ -152,15 +152,15 @@ background-image: url(../img/rooms/rooms-intro/1.jpg);
 }
 
 .rooms-bg-1 {
-background-image: url(../img/homepage/orange-tile.png);
+background-image: url(../img/homepage/orange-tile.webp);
 }
 
 .rooms-bg-2 {
-background-image: url(../img/homepage/cafe.png);
+background-image: url(../img/homepage/cafe.webp);
 }
 
 .rooms-bg-3 {
-background-image: url(../img/homepage/double.png);
+background-image: url(../img/homepage/double.webp);
 }
 
 .rooms-bg-4 {
@@ -202,7 +202,7 @@ background-image: url(../img/facilities/3.jpg);
 }
 
 .facilities-bg-4 {
-background-image: url(../img/orangee.png);
+background-image: url(../img/homepage/orange.webp);
 }
 
 .facilities-bg-5 {
