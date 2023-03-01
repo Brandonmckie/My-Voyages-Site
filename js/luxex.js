@@ -11,7 +11,7 @@
   6. navigation dropdown
   7. animate elements
   8. facts counter 
-  9. google maps zoom ON/OFF
+  9. google maps zoom ON/OFF removed
   10. owl carousel
   11. swiper slider
   12. magnificPopup
@@ -19,7 +19,7 @@
   14. items selector
   15. datepicker
   16. Select2
-  17. toggle blog panels
+  17. toggle blog panels 
   18. contact form
     18.1. contact modal
   19. reservation form
@@ -148,14 +148,6 @@ $(function () {
       speed: 1200,
       refreshInterval: 60,
     });
-  });
-
-  // 9. google maps zoom ON/OFF
-  $(".google-maps").on("click", function () {
-    $(".google-maps iframe").css("pointer-events", "auto");
-  });
-  $(".google-maps").on("mouseleave", function () {
-    $(".google-maps iframe").css("pointer-events", "none");
   });
 
   // 10. owl carousel
@@ -390,32 +382,6 @@ $(function () {
     }
   );
 
-  // 12. magnificPopup
-  $(".popup-photo").magnificPopup({
-    type: "image",
-    gallery: {
-      enabled: false,
-      tPrev: "",
-      tNext: "",
-      tCounter: "%curr% / %total%",
-    },
-    removalDelay: 100,
-    mainClass: "mfp-fade",
-    fixedContentPos: false,
-  });
-  $(".popup-photo-gallery").each(function () {
-    $(this).magnificPopup({
-      delegate: ".popup-photo-gallery-open",
-      type: "image",
-      gallery: {
-        enabled: true,
-      },
-      removalDelay: 100,
-      mainClass: "mfp-fade",
-      fixedContentPos: false,
-    });
-  });
-
   // 13. clone function
   $.fn.duplicate = function (count, cloneEvents, callback) {
     var stack = [],
@@ -445,32 +411,10 @@ $(function () {
   }
   buttons.forEach((button) => button.addEventListener("click", handleClick));
 
-  // 15. datepicker
-  $(".datepicker").datepicker({
-    orientation: "auto",
-  });
-
   // 16. Select2
   $(".select2").select2({
     minimumResultsForSearch: Infinity,
   });
-
-  // 17. toggle blog panels
-  // $(".blog-side-launcher").on("click", function () {
-  //   var divClass = $(this).attr("data-id");
-  //   if ($(this).hasClass("open")) {
-  //     $(this).removeClass("open");
-  //     $("." + divClass).addClass("open");
-  //   } else {
-  //     $(this).addClass("open");
-  //     $("." + divClass).addClass("open");
-  //   }
-  // });
-  // $(".blog-side-launch, .blog-side-text").on("click", function () {
-  //   $(".panel-from-left-blog, .panel-overlay-from-right-blog").removeClass(
-  //     "open"
-  //   );
-  // });
 
   // 18. contact form
   $("form#form").on("submit", function () {
