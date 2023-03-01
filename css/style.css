@@ -300,6 +300,10 @@ min-height: 586px;
   color: #5e5e5e;
 }
 
+.hero-heading.first-tittle{
+  font-size: 2rem ;
+}
+
 
 /* 5. center container */
 .center-container {
@@ -5437,6 +5441,7 @@ margin: -13px auto 8px auto;
 @media only screen and (max-width: 768px) {
   h1.hero-heading.hero-heading-home {
     margin: -7px auto 5px auto;
+    font-size: 20px;
   }
 }
 
