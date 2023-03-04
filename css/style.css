@@ -2065,6 +2065,11 @@ line-height: 2;
 margin: -5px auto -4px auto;
 }
 
+.feature-images{
+width: 285px;
+padding-bottom: 1rem;
+}
+
 .social-icons a,
 .social-icons a:hover {
 outline: none;
@@ -2194,6 +2199,20 @@ display: flex;
 justify-content: center;
 flex-wrap: wrap;
 margin: -5px 0 0 0;
+padding: 0;
+}
+
+.feature-button{
+  position: relative;
+font-family: 'Montserrat', sans-serif;
+font-size: 15px;
+font-weight: 800!important;
+text-align: center;
+text-transform: uppercase;
+color: #5f5f5f!important;
+line-height: 1;
+letter-spacing: -0.04em;
+margin: 4px 0 0 0;
 padding: 0;
 }
 
@@ -2504,7 +2523,24 @@ background-position: -94px -44px;
 
 
 /* 31. Owl Carousel CUSTOM */
-.owl-carousel {
+.ferature-card .feature-img-box{
+  height: 200px;
+}
+
+.ferature-card .feature-img-box img{
+  height: 100%;
+}
+
+.ferature-card .feature-person-details{
+height: 40px;
+width: 40px;
+}
+
+.owl-carousel-menu{
+  justify-content: space-between;
+}
+
+.owl-carousel img {
 cursor: grab;
 }
 
