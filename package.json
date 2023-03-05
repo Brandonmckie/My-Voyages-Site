@@ -1,0 +1,31 @@
+{
+  "name": "my-voyages-site",
+  "version": "1.0.0",
+  "description": "A blog and itinerary sales site for travel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "seeds": "node seeds/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brandonmckie/My-Voyages-Site"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brandonmckie/My-Voyages-Site/issues"
+  },
+  "homepage": "https://brandonmckie.github.io/My-Voyages-Site/",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.3",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.0"
+  }
+}
