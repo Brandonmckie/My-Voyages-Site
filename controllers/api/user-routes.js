@@ -45,19 +45,66 @@ router.post('/', (req, res) => {
     password: req.body.password
   })
     .then(dbUserData => {
-      res.json(dbUserData);
-      // req.session.save(() => {
-      //   req.session.user_id = dbUserData.id;
-      //   req.session.username = dbUserData.username;
-      //   req.session.loggedIn = true;
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
 
-      //   // res.json(dbUserData);
-      // });
+        res.json(dbUserData);
+      });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// checks user credentials and creates session data
+// POST api/users/login
+router.post('/login', (req, res) => {
+  if(req.session.loggedIn){
+    res.status(400).json({ message: 'Already logged in!' });
+    return;
+  };
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  }).then(async function(dbUserData){
+    if (!dbUserData) {
+      res.status(400).json({ message: 'No user with that email address!' });
+      return;
+    }
+    // calls asynchronous instance method to check password input against hashed password
+    const validPassword = await dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+
+    // logged in
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+  
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  });
+});
+
+// destroys current session
+// POST api/users/logout
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;
