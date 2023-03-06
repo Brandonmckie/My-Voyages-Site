@@ -1,0 +1,14 @@
+<article class="blog-post">
+  <div class="blog-title">
+    <p class="blog-title-color" target="_blank">{{title}}</p>
+  </div>
+  <div class="meta">
+    <p>{{content}}</p>
+  </div>
+  {{!-- format_plural is a function found in helpers.js --}}
+  <div class="meta">
+    {{vote_count}} <i class="fa-solid fa-thumbs-up"></i> {{format_plural "like" vote_count}} by {{user.username}} on {{format_date created_at}}
+    |
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+  </div>
+</article>

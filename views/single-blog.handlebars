@@ -1,0 +1,26 @@
+{{> nav-bar }}
+{{> hero heroBlog=heroBlog }}
+{{!-- generate a post-info partial with post data --}}
+{{> post-info post}}
+
+{{!-- comment and like functionality only for logged in users --}}
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+    <button type="button" class="upvote-btn"><i class="fa-solid fa-thumbs-up"></i>like</button>
+  </div>
+</form>
+{{/if}}
+
+{{!-- generate a comment partials with comment data --}}
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="/public/javascript/comment.js"></script>
+<script src="/public/javascript/upvote.js"></script>
+{{/if}}

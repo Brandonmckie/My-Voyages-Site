@@ -3,7 +3,7 @@
   <!-- hero bg start -->
   <div class="hero-fullscreen">
     <div class="hero-fullscreen-FIX">
-      <div class="hero-bg">
+      <div class="hero-bg" >
         <!-- hero slider wrapper start -->
         <div class="swiper-container-wrapper">
           <!-- swiper container start -->
@@ -17,7 +17,7 @@
                   <div class="swiper-slide-inner-bg bg-img-1 overlay overlay-dark">
                     <!-- HTML5 video URL start -->
                     <video playsinline autoplay loop muted>
-                      <source src="./html5-videos-22/My Voyages (Vercion 1)website.mp4">
+                      <source src="/public/html5-videos-22/My Voyages (Vercion 1)website.mp4">
                     </video>
                     <!-- HTML5 video URL end -->
                   </div>
@@ -31,10 +31,17 @@
                     <div class="divider-m"></div>
                     <!-- divider end -->
                     <!-- section title start -->
+                    {{#if heroBlog}}
+                    <h1 class="hero-heading hero-heading-home fadeIn-element first-tittle">
+                      Itinerary Blogs
+                    </h1>
+                    {{else}}
                     <h1 class="hero-heading hero-heading-home fadeIn-element first-tittle">
                       My Voyages simplifies travel planning through social interaction, resulting in trusted travel
                       reviews.
                     </h1>
+                    {{/if}}
+
                     <!-- section title end -->
                     <!-- divider start -->
                     <div class="divider-m"></div>

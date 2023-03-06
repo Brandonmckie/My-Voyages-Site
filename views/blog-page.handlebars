@@ -1,0 +1,10 @@
+{{> nav-bar }}
+{{> hero heroBlog=heroBlog }}
+<ol>
+{{!-- for each post generate a post-info partial with post data --}}
+  {{#each posts as |post|}}
+  <li>
+    {{> post-info post }}
+  </li>
+  {{/each}}
+</ol>
