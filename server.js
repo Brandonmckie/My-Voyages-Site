@@ -1,6 +1,8 @@
 // import dependencies
 const path = require('path');
 const express = require('express');
+const multer = require('multer');
+const upload = multer();
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 require('dotenv').config();
@@ -35,6 +37,8 @@ app.set('view engine', 'handlebars');
 // middleware for handling json data and supplying static assets for front end
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// for parsing multipart/form-data
+app.use(upload.any()); 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // use routes in controllers folder

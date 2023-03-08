@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 
+router.get('/blog-upload', (req, res) => { 
+  res.render('blog-upload');
+})
+
 // get all posts for blogpage
 router.get('/blog', (req, res) => {
   Post.findAll({

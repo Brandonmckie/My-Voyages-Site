@@ -83,6 +83,10 @@ Post.init(
       type:DataTypes.STRING,
       allowNull: false
     },
+    images: {
+      type:DataTypes.STRING,
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
