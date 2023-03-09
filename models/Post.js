@@ -87,6 +87,10 @@ Post.init(
       type:DataTypes.STRING,
       allowNull: false
     },
+    city: {
+      type:DataTypes.STRING,
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
       'title',
       'content',
       'images',
+      'city',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -52,6 +53,7 @@ router.get('/:id', (req, res) => {
       'title',
       'content',
       'images',
+      'city',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -95,6 +97,7 @@ router.post('/', upload.array('images'), (req, res) => {
     title: req.body.title,
     content: req.body.content,
     images: imgFile,
+    city: req.body.city,
     user_id: req.session.user_id
   })
     .then(dbPostData => {
