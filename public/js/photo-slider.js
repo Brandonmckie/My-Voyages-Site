@@ -5,7 +5,8 @@ for(i=0;i<list.length;i++){
 };
 
 buttons.forEach(button => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
     const offset = button.dataset.carouselButton === "next" ? 1 : -1;
     const slides = button
       .closest("[data-carousel]")

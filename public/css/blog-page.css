@@ -88,3 +88,8 @@
 .carousel-button.next {
   right: 1rem;
 }
+
+.map{
+  height: 400px;
+  width: 100%;
+}

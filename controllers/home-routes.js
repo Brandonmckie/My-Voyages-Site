@@ -52,6 +52,7 @@ router.get('/blog', (req, res) => {
       res.render('blog-page', {
         posts: postsImgArr,
         loggedIn: req.session.loggedIn,
+        gmaps: process.env.GMAPS,
         heroBlog: true
       });
     })
