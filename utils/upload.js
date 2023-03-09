@@ -4,10 +4,10 @@ const path = require('path');
 // Image uploader Controller for POST api/posts
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-      cb(null, '../public/img/blog-img');
+      cb(null, 'public/img/blog-img');
   },
   filename: (req, file, cb) => {
-      cb(null, Date.now() + '-' + Math.round(Math.random() * 1E9) + path.extname(file.originalname));
+      cb(null, Date.now() + '-' + Math.round(Math.random() * 1E9) + '-' + file.originalname);
   }
 });
 
@@ -18,7 +18,6 @@ const upload = multer({
       const fileTypes = /jpeg|jpg|png|gif/;
       const mimeType = fileTypes.test(file.mimetype);
       const extname = fileTypes.test(path.extname(file.originalname));
-
       if(mimeType && extname) {
           return cb(null, true);
       };

@@ -4,10 +4,23 @@
   </div>
   <div class="meta">
     <p>{{content}}</p>
+    <section aria-label="Newest Photos">
+      <div class="carousel-blog" data-carousel>
+        <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+        <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+        <ul data-slides>
+        {{#each images as | image |}}
+        <li class="slide-blog">
+          <img src="{{image}}" class="d-block w-100" alt="Vacation pictures">
+        </li>
+        {{/each}}
+        </ul>
+      </div>
+    </section>
   </div>
-  {{!-- format_plural is a function found in helpers.js --}}
   <div class="meta">
-    {{vote_count}} <i class="fa-solid fa-thumbs-up"></i> {{format_plural "like" vote_count}} by {{user.username}} on {{format_date created_at}}
+    {{vote_count}} <i class="fa-solid fa-thumbs-up"></i> {{format_plural "like" vote_count}} by {{user.username}} on
+    {{format_date created_at}}
     |
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>

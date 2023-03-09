@@ -38,7 +38,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // for parsing multipart/form-data
-app.use(upload.any()); 
+//app.use(upload.any()); 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // use routes in controllers folder

@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 
-router.get('/blog-upload', (req, res) => { 
+router.get('/blog-upload', (req, res) => {
   res.render('blog-upload');
 })
 
@@ -18,6 +18,7 @@ router.get('/blog', (req, res) => {
       'id',
       'title',
       'content',
+      'images',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -39,9 +40,17 @@ router.get('/blog', (req, res) => {
     .then(dbPostData => {
       // serialize data for handlebars rendering
       const posts = dbPostData.map(post => post.get({ plain: true }));
-
+      const postsImgArr = posts.map(post => Object.assign({}, post, { images: (post.images.split(' ')) }));
+      postsImgArr.forEach((Obj) => {
+        for (const key in Obj) {
+          if (key == 'images') {
+            Obj[key] = Obj[key].map(string => '\\' + string);
+          };
+        };
+      });
+      console.log(postsImgArr);
       res.render('blog-page', {
-        posts,
+        posts: postsImgArr,
         loggedIn: req.session.loggedIn,
         heroBlog: true
       });

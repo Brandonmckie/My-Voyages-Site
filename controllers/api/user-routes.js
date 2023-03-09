@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment, Vote } = require('../../models');
+const upload = require('../../utils/upload');
 
 // GET api/users/
 // get all users
@@ -58,7 +59,8 @@ router.get('/:id', (req, res) => {
 
 // POST api/users/
 // creates a user
-router.post('/', (req, res) => {
+router.post('/', upload.any(), (req, res) => {
+  console.log(req.body);
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -81,7 +83,7 @@ router.post('/', (req, res) => {
 
 // checks user credentials and creates session data
 // POST api/users/login
-router.post('/login', (req, res) => {
+router.post('/login', upload.any(), (req, res) => {
   if(req.session.loggedIn){
     res.status(400).json({ message: 'Already logged in!' });
     return;
@@ -129,7 +131,7 @@ router.post('/logout', (req, res) => {
 
 // update user information
 // PUT api/users/:id
-router.put('/:id', (req, res) => {
+router.put('/:id', upload.any(), (req, res) => {
   /* pass in req.body instead to only update what's passed through.
     ! If credentials except password are to be updated
     ! PASSWORD MUST BE PASSED AS WELL else original password will be rehashed*/
