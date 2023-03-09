@@ -48,7 +48,6 @@ router.get('/blog', (req, res) => {
           };
         };
       });
-      console.log(postsImgArr);
       res.render('blog-page', {
         posts: postsImgArr,
         loggedIn: req.session.loggedIn,
@@ -72,6 +71,8 @@ router.get('/post/:id', (req, res) => {
       'id',
       'title',
       'content',
+      'images',
+      'city',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -97,10 +98,17 @@ router.get('/post/:id', (req, res) => {
       }
       // serialize data for handlebars rendering
       const post = dbPostData.get({ plain: true });
-
+      const postImgArr = Object.assign({}, post, { images: (post.images.split(' ')) });
+      for (const key in postImgArr) {
+        if (key == 'images') {
+          postImgArr[key] = postImgArr[key].map(string => '\\' + string);
+        };
+      };
+      console.log(postImgArr)
       res.render('single-blog', {
-        post,
+        post: postImgArr,
         loggedIn: req.session.loggedIn,
+        gmaps: process.env.GMAPS,
         heroBlog: true
       });
     })

@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 900px;
+  margin: auto;
 }
 .blog-title, .meta, .comment{
   background-color: lightblue;
@@ -14,6 +16,7 @@
   margin: 4px 2px;
   border-radius: 16px;
 }
+
 .blog-title-color, .blog-title, .comments-title{
   font-size: large;
   font-weight: 900;
@@ -22,9 +25,13 @@
   text-shadow: purple 1px 0 10px;
 }
 
+.main-blog{
+  width: 100%;
+}
+
 .carousel-blog{
-  width: 100vw;
-  height: 500px;
+  width: 100%;
+  height: 300px;
   position: relative;
 }
 
@@ -90,6 +97,23 @@
 }
 
 .map{
-  height: 400px;
+  height: 250px;
   width: 100%;
+}
+
+@media (min-width: 700px){
+  .main-blog{
+    display: flex;
+  } 
+  .left-blog{
+    width: 50%;
+  }
+  .carousel-container{
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .map{
+    height: 400px;
+  }
 }

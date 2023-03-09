@@ -2,11 +2,13 @@
   <div class="blog-title">
     <p class="blog-title-color" target="_blank">{{title}}</p>
   </div>
-  <div class="meta">
-    <p>{{content}}</p>
-    {{!-- <div id="map"></div> --}}
-    <div id="map_{{id}}" class="map"></div>
-    <section aria-label="Newest Photos">
+  <div class="meta main-blog">
+    <div class="left-blog">
+      <p>{{content}}</p>
+      {{!-- <div id="map"></div> --}}
+      <div id="map_{{id}}" class="map"></div>
+    </div>
+    <section aria-label="Newest Photos" class="carousel-container">
       <div class="carousel-blog" data-carousel>
         <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
         <button class="carousel-button next" data-carousel-button="next">&#8658;</button>

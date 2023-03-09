@@ -22,7 +22,9 @@
 
 {{> contact}}
 
-{{#if loggedIn}}
-<script src="/public/javascript/comment.js"></script>
-<script src="/public/javascript/upvote.js"></script>
-{{/if}}
+<script src="/public/js/photo-slider.js"></script>
+<script src="/public/js/google-map.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{gmaps}}&callback=addMap&v=weekly"
+  defer
+></script>
