@@ -1,5 +1,5 @@
 const { Vote } = require('../models');
-
+// ! SEEDS ARE BROKEN DO NOT USE!!!!
 const votedata = [
   {
     user_id: 9,

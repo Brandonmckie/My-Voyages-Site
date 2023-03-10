@@ -1,6 +1,6 @@
 const sequelize = require('../config/connection');
 const { User, Post } = require('../models');
-
+// ! SEEDS ARE BROKEN DO NOT USE!!!!
 const userdata = [
   {
     username: 'alesmonde0',

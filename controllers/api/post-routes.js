@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote } = require('../../models');
+const { Post, User, Comment, Vote, Category } = require('../../models');
 const withAuth = require('../../utils/auth');
 const upload = require('../../utils/upload');
 
@@ -18,6 +18,10 @@ router.get('/', (req, res) => {
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
+      {
+        model: Category,
+        attributes: ['category_name']
+      },
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -59,6 +63,10 @@ router.get('/:id', (req, res) => {
     ],
     include: [
       {
+        model: Category,
+        attributes: ['category_name']
+      },
+      {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
@@ -88,6 +96,7 @@ router.get('/:id', (req, res) => {
 // Create a post
 // POST api/posts
 router.post('/', upload.array('images'), (req, res) => {
+  console.log(req.body);
   if (!req.files) {
     res.status(400).json('No files choosen to upload!')
     return;
@@ -98,7 +107,8 @@ router.post('/', upload.array('images'), (req, res) => {
     content: req.body.content,
     images: imgFile,
     city: req.body.city,
-    user_id: req.session.user_id
+    user_id: req.session.user_id,
+    category_id: req.body.category_id
   })
     .then(dbPostData => {
       res.json(dbPostData)

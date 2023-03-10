@@ -1,6 +1,13 @@
 <article class="blog-post">
-  <div class="blog-title">
-    <p class="blog-title-color" target="_blank">{{title}}</p>
+  <div class="blog-header">
+    <p class="blog-title btn" target="_blank">{{title}}</p>
+    <aside>
+      <h3>Category:</h3>
+      <button value="{{category.category_name}}" class="category btn">
+        {{category.category_name}}
+      </button>
+    </aside>
+    
   </div>
   <div class="meta main-blog">
     <div class="left-blog">

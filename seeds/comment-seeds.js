@@ -1,5 +1,5 @@
 const { Comment } = require('../models');
-
+// ! SEEDS ARE BROKEN DO NOT USE!!!!
 const commentdata = [
   {
     comment_text: 'Nunc rhoncus dui vel sem.',

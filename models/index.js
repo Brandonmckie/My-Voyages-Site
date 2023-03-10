@@ -3,6 +3,7 @@ const Post = require('./Post');
 const User = require('./User');
 const Vote = require('./Vote');
 const Comment = require('./Comment');
+const Category = require('./Category');
 
 // create associations
 // One to many relationship between user and post
@@ -13,6 +14,15 @@ User.hasMany(Post, {
 Post.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
+});
+
+// Categories have many Products (one to many)
+Category.hasMany(Post, {
+  foreignKey: 'category_id'
+});
+// Products belongsTo Category (one to many)
+Post.belongsTo(Category, {
+  foreignKey: 'category_id',
 });
 
 // through table connection between user and post via vote
@@ -75,4 +85,4 @@ Post.hasMany(Comment, {
   foreignKey: 'post_id'
 });
 
-module.exports = { User, Post, Vote, Comment };
+module.exports = { User, Post, Vote, Comment, Category };

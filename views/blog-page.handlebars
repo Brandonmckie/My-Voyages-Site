@@ -1,7 +1,13 @@
 {{> nav-bar }}
 {{> hero heroBlog=heroBlog }}
-<ol>
-{{!-- for each post generate a post-info partial with post data --}}
+<nav id="category-nav">
+  <a href="/blog/0" class="cat-a"><button class="btn">All Posts</button></a>
+  <a href="/blog/1" class="cat-a"><button class="btn">Stay</button></a>
+  <a href="/blog/2" class="cat-a"><button class="btn">Taste</button></a>
+  <a href="/blog/3" class="cat-a"><button class="btn">Vibe</button></a>
+</nav>
+<ol id="blog-feed">
+  {{!-- for each post generate a post-info partial with post data --}}
   {{#each posts as |post|}}
   <li>
     {{> post-info post }}
@@ -10,9 +16,7 @@
 </ol>
 {{> contact}}
 
+<script src="/public/js/blog-nav.js"></script>
 <script src="/public/js/photo-slider.js"></script>
 <script src="/public/js/google-map.js"></script>
-<script
-  src="https://maps.googleapis.com/maps/api/js?key={{gmaps}}&callback=addMaps&v=weekly"
-  defer
-></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key={{gmaps}}&callback=addMaps&v=weekly" defer></script>

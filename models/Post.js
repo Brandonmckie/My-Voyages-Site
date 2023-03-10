@@ -96,10 +96,53 @@ Post.init(
       references: {
         model: 'user',
         key: 'id'
-      }
-    }
+      },
+      allowNull: false
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id'
+      },
+      allowNull: false
+    },
   },
   {
+    hooks: {
+      // hooks can run async functions before or after a model is created or updated
+      async beforeCreate(newUserData) {
+        switch(newUserData.category_id){
+          case "Stay":
+            newUserData.category_id = 1
+            return newUserData;
+          case "Taste":
+            newUserData.category_id = 2
+            return newUserData;
+          case "Vibe":
+            newUserData.category_id = 3
+            return newUserData;
+          default:
+            return newUserData;
+        }
+      },
+
+      async beforeUpdate(updatedUserData) {
+        switch(updatedUserData.category_id){
+          case "Stay":
+            updatedUserData.category_id = 1
+            return updatedUserData;
+          case "Taste":
+            updatedUserData.category_id = 2
+            return updatedUserData;
+          case "Vibe":
+            updatedUserData.category_id = 3
+            return updatedUserData;
+          default:
+            return updatedUserData;
+        }
+      }
+    },
     sequelize,
     freezeTableName: true,
     underscored: true,
