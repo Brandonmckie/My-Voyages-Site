@@ -1,3 +1,5 @@
+{{> nav-bar loggedIn}}
+{{> hero heroBlog=heroBlog }}
 <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
 <form action="/api/posts" method="POST" enctype="multipart/form-data" target="dummyframe" >
   <label for="images">Multi-image Upload:</label>
@@ -11,3 +13,4 @@
 
   <button type="submit">Submit</button>
 </form>
+{{> contact}}

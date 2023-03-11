@@ -60,7 +60,6 @@ router.get('/:id', (req, res) => {
 // POST api/users/
 // creates a user
 router.post('/', upload.any(), (req, res) => {
-  console.log(req.body);
   User.create({
     username: req.body.username,
     email: req.body.email,

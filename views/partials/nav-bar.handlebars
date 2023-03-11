@@ -42,6 +42,9 @@
             <a href="about.html">About</a>
           </li>
           <li>
+            <a href="/blog/0">blogs</a>
+          </li>
+          <li>
             <a href="ambassador.html">Become Ambassador</a>
           </li>
           <li>
@@ -50,12 +53,18 @@
           <li>
             <a href="contact.html">early access</a>
           </li>
+          {{#if this}}
           <li>
-            <a href="/blog/0">blogs</a>
+            <a href="/dashboard">Profile</a>
           </li>
           <li>
-            <a href="/blog-upload">blog-upload</a>
+            <a id="logout" class="btn-no-style" href="#">logout</a>
           </li>
+          {{else}}
+          <li>
+            <a href="/login-signup">Login/Signup</a>
+          </li>
+          {{/if}}
         </ul>
         <!-- menu end -->
       </div>

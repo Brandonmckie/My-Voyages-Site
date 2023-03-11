@@ -4,12 +4,10 @@ const { Post, User, Comment, Vote, Category } = require('../models');
 
 // render homepage
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    loggedIn: req.session.loggedIn
+  });
 });
-
-router.get('/blog-upload', (req, res) => {
-  res.render('blog-upload');
-})
 
 // get all posts for blogpage
 router.get('/blog/:id', (req, res) => {
@@ -242,13 +240,21 @@ router.get('/post/:id', (req, res) => {
 });
 
 // login page
-router.get('/login', (req, res) => {
+router.get('/login-signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
-  }
+  };
 
-  res.render('login');
+  res.render('login-signup',{
+    loggedIn: req.session.loggedIn
+  });
+});
+
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard',{
+    loggedIn: req.session.loggedIn
+  });
 });
 
 module.exports = router;
