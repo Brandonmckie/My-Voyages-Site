@@ -121,6 +121,65 @@ router.get('/blog/:id', (req, res) => {
   }
 });
 
+// GET /city/:city
+// get all posts by city name
+router.get('/city/:city', (req, res) => {
+  Post.findAll({
+    where: {
+      city: req.params.city
+    },
+    attributes: [
+      'id',
+      'title',
+      'content',
+      'images',
+      'city',
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+    ],
+    include: [
+      {
+        model: Category,
+        attributes: ['category_name']
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbPostData => {
+      // serialize data for handlebars rendering
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      const postsImgArr = posts.map(post => Object.assign({}, post, { images: (post.images.split(' ')) }));
+      postsImgArr.forEach((Obj) => {
+        for (const key in Obj) {
+          if (key == 'images') {
+            Obj[key] = Obj[key].map(string => '\\' + string);
+          };
+        };
+      });
+      res.render('blog-page', {
+        posts: postsImgArr,
+        loggedIn: req.session.loggedIn,
+        gmaps: process.env.GMAPS,
+        heroBlog: true
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // get single blog post
 router.get('/post/:id', (req, res) => {
   Post.findOne({

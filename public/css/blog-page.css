@@ -1,3 +1,19 @@
+.search-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+#city-input{
+  width:auto;
+}
+
+#city-search{
+  width:auto;
+  margin: 5px;
+}
+
 #category-nav{
   display: flex;
   flex-direction: column;  
@@ -35,8 +51,8 @@
 }
 
 .blog-header, .meta, .comment, .category, .blog-title{
-  background-color: lightblue;
-  color: black;
+  background-color: rgb(89, 89, 89);
+  color: white;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -53,12 +69,13 @@
 }
 
 .blog-title{
-  margin-top: auto;
-  margin-bottom: auto;
   background-color: rgb(253, 182, 110);
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
+}
+
+.blog-title-a{
+  margin-top:20px;
+  margin-bottom: auto;
 }
 
 .category{
@@ -73,6 +90,10 @@
 
 .main-blog{
   width: 100%;
+}
+
+.left-blog > p{
+  color: white;
 }
 
 .carousel-blog{
