@@ -29,15 +29,13 @@ Post.belongsTo(Category, {
 User.belongsToMany(Post, {
   through: Vote,
   as: 'voted_posts',
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'user_id'
 });
 
 Post.belongsToMany(User, {
   through: Vote,
   as: 'voted_posts',
-  foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  foreignKey: 'post_id'
 });
 
 // one to one relationship between a vote 

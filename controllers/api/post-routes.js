@@ -149,11 +149,19 @@ router.put('/unvote', withAuth, upload.any(), (req, res) => {
 
 // edit a post
 // PUT api/posts/:id
-router.put('/:id', withAuth, upload.any(), (req, res) => {
+router.put('/:id', withAuth, upload.array('images'), (req, res) => {
+  if (!req.files) {
+    res.status(400).json('No files choosen to upload!')
+    return;
+  }
+  const imgFile = req.files.map(file => file.path).join(' ');
   Post.update(
     {
       title: req.body.title,
-      content: req.body.content
+      content: req.body.content,
+      images: imgFile,
+      city: req.body.city,
+      category_id: req.body.category_id
     },
     {
       where: {

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const upload = require('../../utils/upload');
 
 // gets all comments
 // GET api/comments // * can use user + post ids to fetch GET by id routes
@@ -15,7 +16,7 @@ router.get('/', (req, res) => {
 
 // creates a comment on a post
 // POST api/comments
-router.post('/', withAuth, (req, res) => {
+router.post('/', withAuth, upload.any(), (req, res) => {
   Comment.create({
     comment_text: req.body.comment_text,
     user_id: req.session.user_id,
