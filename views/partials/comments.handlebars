@@ -2,14 +2,19 @@
   <h3 class="comments-title">Comments:</h3>
   {{!-- loops through comments array which contains comment objects --}}
   {{!-- hense each element is refered to as this --}}
-  {{#each this}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}} on {{format_date created_at}}
-    </div>
-    <div class="text">
-      {{comment_text}}
-    </div>
-  </section>
-  {{/each}}
+  {{#if this}}
+    {{#each this}}
+    <section class="comment">
+      <div class="meta">
+        {{user.username}} on {{format_date created_at}}
+      </div>
+      <div class="text">
+        {{comment_text}}
+      </div>
+    </section>
+    {{/each}}
+  {{else}}
+  <h2>No comments ...</h2>
+  {{/if}}
+
 </div>

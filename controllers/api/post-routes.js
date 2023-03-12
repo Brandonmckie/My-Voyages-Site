@@ -96,7 +96,6 @@ router.get('/:id', (req, res) => {
 // Create a post
 // POST api/posts
 router.post('/', upload.array('images'), (req, res) => {
-  console.log(req.body);
   if (!req.files) {
     res.status(400).json('No files choosen to upload!')
     return;
@@ -150,6 +149,7 @@ router.put('/unvote', withAuth, upload.any(), (req, res) => {
 // edit a post
 // PUT api/posts/:id
 router.put('/:id', withAuth, upload.array('images'), (req, res) => {
+  console.log(req.body);
   if (!req.files) {
     res.status(400).json('No files choosen to upload!')
     return;

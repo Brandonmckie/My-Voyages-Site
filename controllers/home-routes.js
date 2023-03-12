@@ -18,6 +18,7 @@ router.get('/blog/:id', (req, res) => {
         'title',
         'content',
         'images',
+        'city',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -72,6 +73,7 @@ router.get('/blog/:id', (req, res) => {
         'title',
         'content',
         'images',
+        'city',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -247,12 +249,6 @@ router.get('/login-signup', (req, res) => {
   };
 
   res.render('login-signup',{
-    loggedIn: req.session.loggedIn
-  });
-});
-
-router.get('/dashboard', (req, res) => {
-  res.render('dashboard',{
     loggedIn: req.session.loggedIn
   });
 });

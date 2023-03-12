@@ -1,0 +1,58 @@
+{{> nav-bar loggedIn}}
+{{> hero heroBlog=heroBlog }}
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Post
+  </h2>
+
+  <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+  {{!-- ! PUT METHOD IN ACTION ATTR NOT SUPPORTED --}}
+  <form action="/api/posts/{{post.id}}" method="PUT" enctype="multipart/form-data" target="dummyframe">
+    {{!-- title --}}
+    <label for="images">Multi-image Upload:</label>
+    <input type="file" name="images" accept="image/*" multiple required />
+    {{!-- blog content --}}
+    <label for="title">Title:</label>
+    <input type="text" name="title" value="{{post.title}}" required>
+
+    <label for="title">Content:</label>
+    <textarea type="text" name="content" value="{{post.content}}" required>{{post.content}}</textarea>
+
+    <label for="city">City:</label>
+    <input type="text" name="city" value="{{post.city}}" required>
+
+    <label for="category_id">Category:</label>
+    <select type="select" name="category_id" required>
+      <option value="Stay">Stay</option>
+      <option value="Taste">Taste</option>
+      <option value="Vibe">Vibe</option>
+    </select>
+    {{!-- meta content of post --}}
+    <div>
+      {{post.vote_count}} {{format_plural "point" vote_count}} by you on {{format_date post.created_at}}
+      | {{!-- format_plural is a function found in helpers.js --}}
+      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" comments.length}}</a>
+    </div>
+
+    <button type="submit">Save post</button>
+    <button type="button" class="delete-post-btn">Delete post</button>
+  </form>
+</article>
+
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+  </div>
+</form>
+
+{{!-- generate comment feed of post --}}
+{{> comments comments}}
+{{> contact}}
+<script src="/public/js/account-controls/edit-js"></script>
+<script src="/public/js/account-controls/delete-js"></script>
+<script src="/public/js/blog/comment.js"></script>

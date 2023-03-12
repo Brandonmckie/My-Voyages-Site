@@ -1,16 +1,49 @@
 {{> nav-bar loggedIn}}
 {{> hero heroBlog=heroBlog }}
 <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-<form action="/api/posts" method="POST" enctype="multipart/form-data" target="dummyframe" >
+<form action="/api/posts" method="POST" enctype="multipart/form-data" target="dummyframe">
   <label for="images">Multi-image Upload:</label>
-  <input type="file" name="images" accept="image/*" multiple required/>
+  <input type="file" name="images" accept="image/*" multiple required />
 
   <label for="title">Title:</label>
   <input type="text" name="title" required>
 
-  <label for="title">Content:</label>
-  <input type="text" name="content" required>
+    <label for="title">Content:</label>
+    <textarea type="text" name="content" required></textarea>
+
+
+  <label for="city">City:</label>
+  <input type="text" name="city" required>
+
+  <label for="category_id">Category:</label>
+  <select type="select" name="category_id" required>
+    <option value="Stay">Stay</option>
+    <option value="Taste">Taste</option>
+    <option value="Vibe">Vibe</option>
+  </select>
 
   <button type="submit">Submit</button>
 </form>
+
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+  <ol>
+    {{!-- for each post generate a post-info partial with post data --}}
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link btn">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{else}}
+<h2>Your Posts:</h2>
+<h2>No blog posts yet!</h2>
+{{/if}}
 {{> contact}}
+
+<script src="/public/js/blog/photo-slider.js"></script>
+<script src="/public/js/blog/google-map.js"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key={{gmaps}}&callback=addMaps&v=weekly" defer></script>
