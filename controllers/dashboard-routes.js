@@ -51,7 +51,11 @@ router.get('/', withAuth, (req, res) => {
       res.render('dashboard', { 
         posts: postsImgArr, 
         loggedIn: true,
-        gmaps: process.env.GMAPS
+        gmaps: process.env.GMAPS,
+        hero:{
+          video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
+          heroBlog: true
+        }
       });
     })
     .catch(err => {
@@ -104,7 +108,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
         res.render('edit-post', {
           post: postImgArr,
           loggedIn: true,
-          gmaps: process.env.GMAPS
+          gmaps: process.env.GMAPS,
+          hero:{
+            video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
+            heroBlog: true
+          }
         });
       } else {
         res.status(404).end();

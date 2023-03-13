@@ -11,7 +11,7 @@ function searchCity(e){
     //Gets city, caps 1st letter, and puts it in the url
     let cityCap = initCity.toLowerCase();
     let city = cityCap.charAt(0).toUpperCase() + cityCap.slice(1);
-    window.location.assign(`/city/${city}`);
+    window.location.assign(`/blog/city/${city}`);
   };
 };
 

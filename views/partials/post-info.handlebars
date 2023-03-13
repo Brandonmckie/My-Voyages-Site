@@ -13,7 +13,7 @@
       </div>
     </section>
     <div class="blog-header-feed">
-      <a class="blog-title-a" href="/post/{{id}}">
+      <a class="blog-title-a" href="/blog/post/{{id}}">
         <h3 class="blog-title-feed">
           {{title}}
         </h3>
@@ -32,7 +32,7 @@
 {{else}}
 <article class="blog-post-single">
   <div class="blog-header-feed">
-    <a class="blog-title-a" href="/post/{{id}}">
+    <a class="blog-title-a" href="/blog/post/{{id}}">
       <h3 class="blog-title-feed">
         {{title}}
       </h3>
@@ -68,7 +68,7 @@
   </div>
   <div class="meta"> {{!-- implement upvote functionality here --}}
     {{vote_count}} {{format_plural "like" vote_count}} | Posted: {{format_date created_at}}
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    <a href="/blog/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>
 </article>
 {{/if}}

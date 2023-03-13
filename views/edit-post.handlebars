@@ -1,5 +1,5 @@
 {{> nav-bar loggedIn}}
-{{> hero heroBlog=heroBlog }}
+{{> hero hero}}
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
@@ -32,7 +32,7 @@
     <div>
       {{post.vote_count}} {{format_plural "point" vote_count}} by you on {{format_date post.created_at}}
       | {{!-- format_plural is a function found in helpers.js --}}
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" comments.length}}</a>
+      <a href="/blog/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" comments.length}}</a>
     </div>
 
     <button type="submit">Save post</button>
