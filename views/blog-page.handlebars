@@ -1,15 +1,7 @@
 {{> nav-bar loggedIn}}
-{{> hero heroBlog=heroBlog }}
-<form id="city-search-form" class="search-container">
-  <input type="text" id="city-input" required />
-  <button id="city-search" class="btn" type="submit">Search</button>
-</form>
-<nav id="category-nav">
-  <a href="/blog/0" class="cat-a"><button class="btn">All Posts</button></a>
-  <a href="/blog/1" class="cat-a"><button class="btn">Stay</button></a>
-  <a href="/blog/2" class="cat-a"><button class="btn">Taste</button></a>
-  <a href="/blog/3" class="cat-a"><button class="btn">Vibe</button></a>
-</nav>
+{{> hero heroBlog=heroBlog}}
+{{> city-blog-search}}
+{{> category-nav}}
 {{#if noData}}
 <h2 class="noData">No posts for this city yet...</h2>
 {{else}}
@@ -25,14 +17,6 @@
 
 {{> contact}}
 
-
-{{#if posts}}
-<script src="/public/js/blog/blog-search.js"></script>
-<script src="/public/js/blog/blog-nav.js"></script>
 <script src="/public/js/blog/photo-slider.js"></script>
-<script src="/public/js/blog/google-map.js"></script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key={{gmaps}}&callback=addMaps&v=weekly" defer></script>
-{{else}}
 <script src="/public/js/blog/blog-search.js"></script>
 <script src="/public/js/blog/blog-nav.js"></script>
-{{/if}}

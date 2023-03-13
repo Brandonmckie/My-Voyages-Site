@@ -10,7 +10,8 @@ async function logout() {
     document.location.replace('/');
   } else {
     alert(response.statusText);
-  }
-}
-
-document.querySelector('#logout').addEventListener('click', logout);
+  };
+};
+if(document.querySelector('#logout')){
+  document.querySelector('#logout').addEventListener('click', logout);
+};
