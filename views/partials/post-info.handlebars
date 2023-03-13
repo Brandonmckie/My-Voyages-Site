@@ -21,9 +21,11 @@
         </h3>
         <aside class="category-container">
           <p class="username">By: {{user.username}}</p>
-          <button value="{{category.category_name}}" class="btn category-btn">
-            {{category.category_name}}
-          </button>
+          <a href="/blog/{{category_id}}" class="category-btn">
+            <button value="{{category.category_name}}" class="btn category-btn">
+              {{category.category_name}}
+            </button>
+          </a>
         </aside>
       </a>
     </div>

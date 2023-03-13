@@ -1,3 +1,6 @@
+.noData{
+  margin-top: 40px;
+}
 .search-container {
   display: flex;
   justify-content: center;
@@ -81,7 +84,7 @@
 }
 
 .blog-title-a {
-  margin-top: 20px;
+  margin-top: auto;
   margin-bottom: auto;
 }
 
@@ -180,7 +183,7 @@
 
 .category-btn {
   margin-right: 0;
-  margin-left: 25px;
+  margin-left: 0;
   margin-top: auto;
   margin-bottom: auto;
   font-size: 12px;
@@ -201,13 +204,6 @@
     display: flex;
     flex-direction: column;
   }
-
-  .blog-header-feed {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
 
   .left-blog-feed {
     width: 50%;
@@ -233,11 +229,12 @@
 }
 
 @media (min-width: 1024px) {
-  #blog-feed{
+  #blog-feed {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .blog-li {
     min-width: 500px;
     margin: 0;

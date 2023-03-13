@@ -19,6 +19,7 @@ router.get('/blog/:id', (req, res) => {
         'content',
         'images',
         'city',
+        'category_id',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -53,7 +54,6 @@ router.get('/blog/:id', (req, res) => {
             };
           };
         });
-        console.log(postsImgArr);
         res.render('blog-page', {
           posts: postsImgArr,
           loggedIn: req.session.loggedIn,
@@ -76,6 +76,7 @@ router.get('/blog/:id', (req, res) => {
         'content',
         'images',
         'city',
+        'category_id',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -106,6 +107,7 @@ router.get('/blog/:id', (req, res) => {
           for (const key in Obj) {
             if (key == 'images') {
               Obj[key] = Obj[key].map(string => '\\' + string);
+              Obj.blogFeed = true;
             };
           };
         });
@@ -136,6 +138,7 @@ router.get('/city/:city', (req, res) => {
       'content',
       'images',
       'city',
+      'category_id',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -161,11 +164,18 @@ router.get('/city/:city', (req, res) => {
     .then(dbPostData => {
       // serialize data for handlebars rendering
       const posts = dbPostData.map(post => post.get({ plain: true }));
+      if (posts[0] === undefined) {
+        res.render('blog-page', {
+          noData: true
+        });
+        return;
+      }
       const postsImgArr = posts.map(post => Object.assign({}, post, { images: (post.images.split(' ')) }));
       postsImgArr.forEach((Obj) => {
         for (const key in Obj) {
           if (key == 'images') {
             Obj[key] = Obj[key].map(string => '\\' + string);
+            Obj.blogFeed = true;
           };
         };
       });
@@ -194,6 +204,7 @@ router.get('/post/:id', (req, res) => {
       'content',
       'images',
       'city',
+      'category_id',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
