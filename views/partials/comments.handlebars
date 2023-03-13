@@ -1,11 +1,11 @@
 <div class="comments">
-  <h3 class="comments-title">Comments:</h3>
+  <h3 class="comments-title">Comments</h3>
   {{!-- loops through comments array which contains comment objects --}}
   {{!-- hense each element is refered to as this --}}
   {{#if this}}
     {{#each this}}
     <section class="comment">
-      <div class="meta">
+      <div class="comment-meta">
         {{user.username}} on {{format_date created_at}}
       </div>
       <div class="text">

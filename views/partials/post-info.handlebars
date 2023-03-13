@@ -3,8 +3,6 @@
   <div class="meta-feed main-blog-feed">
     <section aria-label="Newest Photos" class="carousel-container-feed">
       <div class="carousel-blog" data-carousel>
-        {{!-- <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
-        <button class="carousel-button next" data-carousel-button="next">&#8658;</button> --}}
         <ul data-slides>
           {{#each images as | image |}}
           <li class="slide-blog">
@@ -32,7 +30,49 @@
   </div>
 </article>
 {{else}}
-<article class="blog-post">
+<article class="blog-post-single">
+  <div class="blog-header-feed">
+    <a class="blog-title-a" href="/post/{{id}}">
+      <h3 class="blog-title-feed">
+        {{title}}
+      </h3>
+      <aside class="category-container">
+        <p class="username">By: {{user.username}}</p>
+        <a href="/blog/{{category_id}}" class="category-btn">
+          <button value="{{category.category_name}}" class="btn category-btn">
+            {{category.category_name}}
+          </button>
+        </a>
+      </aside>
+    </a>
+  </div>
+  <div class="meta-feed main-blog-feed">
+    <section aria-label="Newest Photos" class="carousel-container-feed">
+      <div class="carousel-blog" data-carousel>
+        <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+        <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+        <ul data-slides>
+          {{#each images as | image |}}
+          <li class="slide-blog">
+            <img src="{{image}}" class="d-block w-100" alt="Vacation picture">
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </section>
+    <div class="left-blog">
+      <p>{{content}}</p>
+      <div id="map"></div>
+      <div id="map_{{id}}" class="map"></div>
+    </div>
+  </div>
+  <div class="meta"> {{!-- implement upvote functionality here --}}
+    {{vote_count}} {{format_plural "like" vote_count}} | Posted: {{format_date created_at}}
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+  </div>
+</article>
+
+{{!-- <article class="blog-post">
   <div class="blog-header">
     <a class="blog-title-a" href="/post/{{id}}">
       <p class="blog-title btn">{{title}}</p>
@@ -45,11 +85,7 @@
     </aside>
   </div>
   <div class="meta main-blog">
-    <div class="left-blog">
-      <p>{{content}}</p>
-      {{!-- <div id="map"></div> --}}
-      <div id="map_{{id}}" class="map"></div>
-    </div>
+
     <section aria-label="Newest Photos" class="carousel-container">
       <div class="carousel-blog" data-carousel>
         <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
@@ -64,11 +100,6 @@
       </div>
     </section>
   </div>
-  <div class="meta">
-    {{vote_count}} <i class="fa-solid fa-thumbs-up"></i> {{format_plural "like" vote_count}} by {{user.username}} on
-    {{format_date created_at}}
-    |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-  </div>
-</article>
+
+</article> --}}
 {{/if}}

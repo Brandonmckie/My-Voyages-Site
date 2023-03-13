@@ -240,7 +240,6 @@ router.get('/post/:id', (req, res) => {
           postImgArr[key] = postImgArr[key].map(string => '\\' + string);
         };
       };
-      console.log(postImgArr)
       res.render('single-blog', {
         post: postImgArr,
         loggedIn: req.session.loggedIn,

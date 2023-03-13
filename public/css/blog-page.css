@@ -50,7 +50,7 @@
   justify-content: space-evenly;
 }
 
-.blog-header, .meta, .comment, .category, .blog-title{
+/* .blog-header, .meta, .comment, .category, .blog-title{
   background-color: rgb(89, 89, 89);
   color: white;
   padding: 10px 20px;
@@ -58,7 +58,7 @@
   text-decoration: none;
   margin: 4px 2px;
   border-radius: 16px;
-}
+} */
 
 .blog-title, .blog-header, .comments-title, .category{
   font-size: large;
@@ -172,9 +172,9 @@
   .main-blog{
     display: flex;
   } 
-  .left-blog{
+  /* .left-blog{
     width: 50%;
-  }
+  } */
   .carousel-container{
     width: 50%;
     margin-top: auto;
