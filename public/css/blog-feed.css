@@ -231,3 +231,21 @@
     padding: 5px 70px;
   }
 }
+
+@media (min-width: 1024px) {
+  #blog-feed{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .blog-li {
+    min-width: 500px;
+    margin: 0;
+  }
+
+  .blog-post {
+    max-width: 500px;
+    margin: 0;
+    flex-direction: row;
+  }
+}

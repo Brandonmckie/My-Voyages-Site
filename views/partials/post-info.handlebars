@@ -3,12 +3,12 @@
   <div class="meta-feed main-blog-feed">
     <section aria-label="Newest Photos" class="carousel-container-feed">
       <div class="carousel-blog" data-carousel>
-        <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
-        <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+        {{!-- <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+        <button class="carousel-button next" data-carousel-button="next">&#8658;</button> --}}
         <ul data-slides>
           {{#each images as | image |}}
           <li class="slide-blog">
-            <img src="{{image}}" class="d-block w-100" alt="Vacation pictures">
+            <img src="{{image}}" class="d-block w-100" alt="Vacation picture">
           </li>
           {{/each}}
         </ul>
