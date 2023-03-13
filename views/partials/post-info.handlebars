@@ -1,13 +1,46 @@
+{{#if blogFeed}}
+<article class="blog-post">
+  <div class="meta-feed main-blog-feed">
+    <section aria-label="Newest Photos" class="carousel-container-feed">
+      <div class="carousel-blog" data-carousel>
+        <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+        <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+        <ul data-slides>
+          {{#each images as | image |}}
+          <li class="slide-blog">
+            <img src="{{image}}" class="d-block w-100" alt="Vacation pictures">
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </section>
+    <div class="blog-header-feed">
+      <a class="blog-title-a" href="/post/{{id}}">
+        <h3 class="blog-title-feed">
+          {{title}}
+        </h3>
+        <aside class="category-container">
+          <p class="username">By: {{user.username}}</p>
+          <button value="{{category.category_name}}" class="btn category-btn">
+            {{category.category_name}}
+          </button>
+        </aside>
+      </a>
+    </div>
+  </div>
+</article>
+{{else}}
 <article class="blog-post">
   <div class="blog-header">
-    <a class="blog-title-a" href="/post/{{id}}"><p class="blog-title btn">{{title}}</p></a>
+    <a class="blog-title-a" href="/post/{{id}}">
+      <p class="blog-title btn">{{title}}</p>
+    </a>
     <aside>
       <h3>Category:</h3>
       <button value="{{category.category_name}}" class="category btn">
         {{category.category_name}}
       </button>
     </aside>
-    
   </div>
   <div class="meta main-blog">
     <div class="left-blog">
@@ -36,3 +69,4 @@
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>
 </article>
+{{/if}}

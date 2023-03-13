@@ -49,9 +49,11 @@ router.get('/blog/:id', (req, res) => {
           for (const key in Obj) {
             if (key == 'images') {
               Obj[key] = Obj[key].map(string => '\\' + string);
+              Obj.blogFeed = true;
             };
           };
         });
+        console.log(postsImgArr);
         res.render('blog-page', {
           posts: postsImgArr,
           loggedIn: req.session.loggedIn,
@@ -248,7 +250,7 @@ router.get('/login-signup', (req, res) => {
     return;
   };
 
-  res.render('login-signup',{
+  res.render('login-signup', {
     loggedIn: req.session.loggedIn
   });
 });
