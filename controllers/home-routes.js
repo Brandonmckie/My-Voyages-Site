@@ -10,6 +10,10 @@ router.get('/', (req, res) => {
       video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
       content: "My Voyages simplifies travel planning through social interaction, resulting in trusted travel reviews.",
       class:"hero-heading hero-heading-home fadeIn-element first-tittle"
+    },
+    footer:{
+      video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
+      content: "My \n Voyages"
     }
   });
 });
@@ -22,6 +26,10 @@ router.get('/about', (req, res) => {
       video: "/public/html5-videos-22/About-Video2.mp4",
       content: "About Us",
       class:"hero-heading hero-heading-home fadeIn-element"
+    },
+    footer:{
+      video: "/public/html5-videos-22/About-Video2.mp4",
+      content: "the future of travel"
     }
   });
 });
