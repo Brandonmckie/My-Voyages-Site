@@ -43,7 +43,8 @@ router.get('/ambassador', (req, res) => {
     hero: {
       video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
       content: "Become a My Voyages Ambassador",
-      class: "hero-heading hero-heading-home fadeIn-element"
+      class: "hero-heading hero-heading-home fadeIn-element",
+      noAccessBtn: true
     },
     promoVideo: {
       video: "/public/html5-videos-22/About-Video2.mp4",
