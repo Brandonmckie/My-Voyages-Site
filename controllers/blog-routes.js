@@ -58,7 +58,8 @@ router.get('/:id', (req, res) => {
           },
           footer:{
             video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
-            content: "My \n Voyages"
+            content: "My \n Voyages",
+            pTop: true
           }
         });
       })
@@ -123,7 +124,8 @@ router.get('/:id', (req, res) => {
           },
           footer:{
             video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
-            content: "My \n Voyages"
+            content: "My \n Voyages",
+            pTop: true
           }
         });
       })
@@ -199,7 +201,8 @@ router.get('/city/:city', (req, res) => {
         },
         footer:{
           video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
-          content: "My \n Voyages"
+          content: "My \n Voyages",
+          pTop: true
         }
       });
     })
@@ -268,7 +271,8 @@ router.get('/post/:id', (req, res) => {
         },
         footer:{
           video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
-          content: "My \n Voyages"
+          content: "My \n Voyages",
+          pTop: true
         }
       });
     })

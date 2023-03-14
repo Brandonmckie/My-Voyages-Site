@@ -1,6 +1,4 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Post, User, Comment, Vote, Category } = require('../models');
 
 // render homepage
 router.get('/', (req, res) => {
@@ -17,7 +15,8 @@ router.get('/', (req, res) => {
     },
     footer: {
       video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
-      content: "My \n Voyages"
+      content: "My \n Voyages",
+      pTop: true
     }
   });
 });
@@ -32,7 +31,8 @@ router.get('/about', (req, res) => {
     },
     footer: {
       video: "/public/html5-videos-22/About-Video2.mp4",
-      content: "the future of travel"
+      content: "the future of travel",
+      pTop: true
     }
   });
 });
@@ -52,7 +52,8 @@ router.get('/ambassador', (req, res) => {
     footer: {
       video: "/public/html5-videos-22/Luxex.mp4",
       content: "My \n Voyages",
-      noForm: true
+      noForm: true,
+      pTop: true
     }
   });
 });
@@ -67,7 +68,27 @@ router.get('/feature', (req, res) => {
     },
     footer: {
       video: "https://www.11-76.com/html5-videos-22/luxex/luxex.mp4",
-      content: "My \n Voyages"
+      content: "My \n Voyages",
+      pTop: true
+    }
+  });
+});
+
+router.get('/contact', (req, res) => {
+  res.render('contact-page', {
+    loggedIn: req.session.loggedIn,
+    hero: {
+      video: "/public/html5-videos-22/My Voyages (Vercion 1)website.mp4",
+      content: "Contact Us",
+      class: "hero-heading hero-heading-home fadeIn-element",
+      noAccessBtn: true
+    },
+    footer: {
+      video: "https://www.11-76.com/html5-videos-22/luxex/luxex.mp4",
+      content: "ARE YOU THE PERSON WHO FINDS THE COOLEST SPOTS AND MAKES SURE EVERYONE HAS A WONDERFUL TIME?",
+      contactUs: true,
+      pBottom: true,
+      noTopLines: true
     }
   });
 });
@@ -83,7 +104,5 @@ router.get('/login-signup', (req, res) => {
     loggedIn: req.session.loggedIn
   });
 });
-
-
 
 module.exports = router;

@@ -2,6 +2,8 @@
 <div id="contact" class="section-all bg-light">
   <!-- container start -->
   <div class="container-fluid">
+    {{#if this.noTopLines}}
+    {{else}}
     <!-- row start -->
     <div class="row">
       <!-- col start -->
@@ -19,6 +21,8 @@
       <!-- col end -->
     </div>
     <!-- row end -->
+    {{/if}}
+    {{#if this.pTop}}
     <!-- row start -->
     <div class="row">
       <!-- col start -->
@@ -58,6 +62,7 @@
       <!-- col end -->
     </div>
     <!-- row end -->
+    {{/if}}
   </div>
   <!-- container end -->
   <!-- container start -->
@@ -68,11 +73,17 @@
     <!-- divider end -->
     {{#if noForm}}
     {{else}}
-        <div>
+    <div>
       <!-- section subtitle start -->
+      {{#if this.contactUs}}
+      <h4 class="h4-comments Ambassador">
+        Contact Us
+      </h4>
+      {{else}}
       <h4 class="h4-comments join">
         Join the Voyage
       </h4>
+      {{/if}}
       <!-- section subtitle end -->
       <!-- divider start -->
       <div class="divider-l"></div>
@@ -128,7 +139,7 @@
       </div>
       <!-- comment form end -->
     </div>
-        <!-- row start -->
+    <!-- row start -->
     <div class="row">
       <!-- col start -->
       <div class="col-lg-12">
@@ -146,8 +157,48 @@
     </div>
     <!-- row end -->
     {{/if}}
-    <!-- row end -->
   </div>
+  {{#if this.pBottom}}
+  <!-- row start -->
+  <div class="row">
+    <!-- col start -->
+    <div class="col-lg-12">
+      <!-- parallax wrapper start -->
+      <div class="parallax-title">
+        <!-- HTML5 video URL start -->
+        <video playsinline autoplay loop muted>
+          <source src="{{this.video}}" type="video/mp4">
+        </video>
+        <!-- HTML5 video URL end -->
+        <!-- page title start -->
+        <div class="parallax-title-content">
+          {{this.content}}
+        </div>
+        <!-- page title end -->
+      </div>
+      <!-- parallax wrapper end -->
+    </div>
+    <!-- col end -->
+  </div>
+  <!-- row end -->
+  <!-- row start -->
+  <div class="row">
+    <!-- col start -->
+    <div class="col-lg-12">
+      <!-- divider start -->
+      <div class="divider-l"></div>
+      <!-- divider end -->
+      <!-- line start -->
+      <div class="the-line"></div>
+      <!-- line end -->
+      <!-- divider start -->
+      <div class="divider-l"></div>
+      <!-- divider end -->
+    </div>
+    <!-- col end -->
+  </div>
+  <!-- row end -->
+  {{/if}}
   <!-- container end -->
   <!-- container start -->
   <div class="container-fluid">
