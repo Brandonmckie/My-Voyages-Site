@@ -57,6 +57,21 @@ router.get('/ambassador', (req, res) => {
   });
 });
 
+router.get('/feature', (req, res) => {
+  res.render('feature', {
+    loggedIn: req.session.loggedIn,
+    hero: {
+      video: "/public/html5-videos-22/About-Video2.mp4",
+      content: "About Us",
+      class: "hero-heading hero-heading-home fadeIn-element"
+    },
+    footer: {
+      video: "/public/html5-videos-22/About-Video2.mp4",
+      content: "the future of travel"
+    }
+  });
+});
+
 // login page
 router.get('/login-signup', (req, res) => {
   if (req.session.loggedIn) {
