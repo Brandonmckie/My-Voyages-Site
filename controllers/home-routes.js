@@ -61,13 +61,13 @@ router.get('/feature', (req, res) => {
   res.render('feature', {
     loggedIn: req.session.loggedIn,
     hero: {
-      video: "/public/html5-videos-22/About-Video2.mp4",
-      content: "About Us",
+      photo: "/public/img/feature/madrid.webp",
+      content: "Voyager Feature \n Curated by creators",
       class: "hero-heading hero-heading-home fadeIn-element"
     },
     footer: {
-      video: "/public/html5-videos-22/About-Video2.mp4",
-      content: "the future of travel"
+      video: "https://www.11-76.com/html5-videos-22/luxex/luxex.mp4",
+      content: "My \n Voyages"
     }
   });
 });

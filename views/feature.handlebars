@@ -1,2 +1,113 @@
 {{> nav-bar loggedIn}}
 {{> hero hero}}
+<!-- scroll indicator start -->
+<div class="scroll-indicator">
+  <div class="scroll-indicator-wrapper">
+    <div class="scroll-line fadeIn-element"></div>
+  </div>
+</div>
+<!-- scroll indicator end -->
+{{> coordinates-banner}}
+<!-- gallery IMG start -->
+<div id="gallery-img" class="bg-light">
+  <!-- divider start -->
+  <div class="divider-m-2"></div>
+  <!-- divider end -->
+  <!-- container start -->
+  <div class="container-fluid">
+    <!-- row start -->
+    <div class="row">
+      <!-- photoSwipe start -->
+      <div class="legendary-gallery">
+        <!-- gallery item start -->
+        <figure class="col-sm-12 col-md-4 hover-effect-img move-down">
+          <a data-size="1280x896" href="chellefeature.html"><img alt="Image description" class="img-responsive"
+              src="/public/img/feature/santorini.webp"></a>
+          <figcaption>
+            <div class="hover-effect">
+              <span><a href="chellefeature.html" class="hover-effect"></a></span>
+            </div>
+            <div class="hover-icons">
+              <h2><a href="chellefeature.html" class="featureacnchor">Greece</a></h2>
+            </div>
+          </figcaption>
+        </figure>
+        <!-- gallery item end -->
+        <!-- gallery item start -->
+        <figure class="col-sm-12 col-md-4 hover-effect-img move-down">
+          <a data-size="1280x896" href="#"><img alt="Image description" class="img-responsive"
+              src="/public/img/feature/barca.webp"></a>
+          <figcaption>
+            <div class="hover-effect">
+              <span><a href="#" class="hover-effect"></a></span>
+            </div>
+            <div class="hover-icons">
+              <h2><a href="#" class="featureacnchor">Coming Soon</a></h2>
+            </div>
+          </figcaption>
+        </figure>
+        <!-- gallery item end -->
+        <!-- gallery item start -->
+        <figure class="col-sm-12 col-md-4 hover-effect-img move-down">
+          <a data-size="1280x896" href="#"><img alt="Image description" class="img-responsive"
+              src="/public/img/feature/lo.webp"></a>
+          <figcaption>
+            <div class="hover-effect">
+              <span><a href="#" class="hover-effect"></a></span>
+            </div>
+            <div class="hover-icons">
+              <h2><a href="#" class="featureacnchor">Coming Soon</a></h2>
+            </div>
+          </figcaption>
+        </figure>
+        <!-- gallery item end -->
+      </div>
+      <!-- photoSwipe end -->
+    </div>
+    <!-- row end -->
+  </div>
+  <!-- container end -->
+</div>
+<!-- gallery IMG end -->
+{{> contact footer}}
+<!-- to top arrow start -->
+<div class="to-top-arrow">
+  <span class="ion-ios-arrow-up"></span>
+</div>
+<!-- to top arrow end -->
+<!-- photoSwipe background start -->
+<div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+  <div class="pswp__bg"></div>
+  <div class="pswp__scroll-wrap">
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <div class="pswp__counter"></div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button
+          class="pswp__button pswp__button--share" title="Share"></button> <button class="pswp__button pswp__button--fs"
+          title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom"
+          title="Zoom in/out"></button>
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button
+        class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- photoSwipe background end -->

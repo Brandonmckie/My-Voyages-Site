@@ -3,7 +3,7 @@
   <!-- hero bg start -->
   <div class="hero-fullscreen">
     <div class="hero-fullscreen-FIX">
-      <div class="hero-bg" >
+      <div class="hero-bg">
         <!-- hero slider wrapper start -->
         <div class="swiper-container-wrapper">
           <!-- swiper container start -->
@@ -15,11 +15,17 @@
                 <div class="swiper-slide-inner">
                   <!-- swiper slider item IMG start -->
                   <div class="swiper-slide-inner-bg bg-img-1 overlay overlay-dark">
+                    {{#if this.photo}}
+                    <!-- swiper slider item IMG start -->
+                    <div class="swiper-slide-inner-bg feature-pic gallery-bg overlay overlay-dark">
+                    </div>
+                    {{else}}
                     <!-- HTML5 video URL start -->
                     <video playsinline autoplay loop muted>
                       <source src="{{this.video}}" type="video/mp4">
                     </video>
                     <!-- HTML5 video URL end -->
+                    {{/if}}
                   </div>
                   <!-- swiper slider item IMG end -->
                   <!-- swiper slider item txt start -->
